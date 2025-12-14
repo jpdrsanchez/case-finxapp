@@ -2,6 +2,7 @@ import { globalIgnores } from 'eslint/config'
 import js from '@eslint/js'
 import globals from 'globals'
 import pluginVue from 'eslint-plugin-vue'
+import pluginVitest from '@vitest/eslint-plugin'
 import {
   defineConfigWithVueTs,
   vueTsConfigs
@@ -26,6 +27,11 @@ export default defineConfigWithVueTs(
   js.configs.recommended,
   pluginVue.configs['flat/recommended'],
   vueTsConfigs.recommendedTypeChecked,
+
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**', 'test/**']
+  },
 
   {
     languageOptions: {
