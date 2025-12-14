@@ -6,5 +6,7 @@
   "trailingComma": "none",
   "printWidth": 80,
   "vueIndentScriptAndStyle": true,
-  "htmlWhitespaceSensitivity": "ignore"
+  "htmlWhitespaceSensitivity": "ignore",
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindFunctions": ["ui"]
 }
