@@ -4,6 +4,6 @@ export interface ListSurgicalRequestsRequest {
   medicalAgreements?: number[]
   page?: number
   itemsPerPage?: number
-  order?: 'ASC' | 'DESC' | null
+  order?: string
   createdAt?: string | null
 }

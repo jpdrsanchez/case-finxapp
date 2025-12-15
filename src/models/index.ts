@@ -12,5 +12,5 @@ export interface PaginationModel {
   itemsPerPage: number
   totalPages: number
   totalItems: number
-  order: 'ASC' | 'DESC' | null
+  order: string
 }

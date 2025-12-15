@@ -22,7 +22,7 @@ const pagination: PaginationModel = reactive({
   page: 1,
   totalItems: 0,
   totalPages: 0,
-  order: null
+  order: ''
 })
 
 export const useSurgicalRequests = () => {
@@ -48,7 +48,7 @@ export const useSurgicalRequests = () => {
       results.value = response.data.data.map(surgicalRequestsMapper.toModel)
       Object.assign(
         pagination,
-        paginationMapper.toModel(response.data.paginacao, request.order || null)
+        paginationMapper.toModel(response.data.paginacao, request.order ?? '')
       )
     } catch {
       error.value = true
@@ -65,11 +65,11 @@ export const useSurgicalRequests = () => {
   }: {
     page?: number
     itemsPerPage?: number
-    order?: 'ASC' | 'DESC' | null
+    order?: string
   }) => {
     pagination.page = page ?? 1
     pagination.itemsPerPage = itemsPerPage ?? 10
-    pagination.order = order ?? null
+    pagination.order = order ?? ''
 
     await listSurgicalRequests({
       ...pagination,

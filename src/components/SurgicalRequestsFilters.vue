@@ -84,7 +84,7 @@
       <label class="flex items-center gap-4">
         <span>Ordenar por:</span>
         <USelect
-          v-model="order as string"
+          v-model="order"
           :disabled="loading"
           size="lg"
           :items="[
@@ -93,7 +93,7 @@
           ]"
           class="w-48"
           @update:model-value="
-            value => {
+            (value: string) => {
               handlePagination({
                 page: 1,
                 itemsPerPage,

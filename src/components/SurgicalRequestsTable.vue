@@ -51,7 +51,7 @@
           :show-edges="true"
           :ui="{ list: 'flex-wrap' }"
           @update:page="
-            page => {
+            (page: number) => {
               handlePagination({ page, itemsPerPage, order })
             }
           "
@@ -71,7 +71,7 @@
             ]"
             class="w-24"
             @update:model-value="
-              value => {
+              (value: number) => {
                 handlePagination({ page, itemsPerPage: value, order })
               }
             "
