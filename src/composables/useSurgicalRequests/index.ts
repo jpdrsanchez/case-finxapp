@@ -1,18 +1,11 @@
 import { reactive, ref } from 'vue'
-import type { PaginationModel, SurgicalRequestModel } from '../models'
-import { finxappClient } from '../api/instance'
-import type { SurgicalRequestsResponseDTO } from '../dtos'
-import { paginationMapper, surgicalRequestsMapper } from '../mappers'
 
-export interface UseSurgicalRequestsRequest {
-  patient?: string
-  doctor?: string
-  medicalAgreements?: number[]
-  page?: number
-  itemsPerPage?: number
-  order?: 'ASC' | 'DESC' | null
-  createdAt?: string | null
-}
+import type { PaginationModel, SurgicalRequestModel } from '../../models'
+import { finxappClient } from '../../api/instance'
+import type { SurgicalRequestsResponseDTO } from '../../dtos'
+import { paginationMapper, surgicalRequestsMapper } from '../../mappers'
+
+import type { ListSurgicalRequestsRequest } from './types'
 
 const loading = ref(false)
 const error = ref(false)
@@ -33,7 +26,7 @@ const pagination: PaginationModel = reactive({
 })
 
 export const useSurgicalRequests = () => {
-  const listSurgicalRequests = async (request: UseSurgicalRequestsRequest) => {
+  const listSurgicalRequests = async (request: ListSurgicalRequestsRequest) => {
     try {
       error.value = false
       loading.value = true
@@ -79,9 +72,7 @@ export const useSurgicalRequests = () => {
     pagination.order = order ?? null
 
     await listSurgicalRequests({
-      page,
-      itemsPerPage,
-      order,
+      ...pagination,
       ...filters
     })
   }
@@ -94,9 +85,7 @@ export const useSurgicalRequests = () => {
     })
 
     await listSurgicalRequests({
-      page: 1,
-      itemsPerPage: pagination.itemsPerPage,
-      order: pagination.order,
+      ...pagination,
       ...filters
     })
   }

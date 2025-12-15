@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import { toRefs } from 'vue'
-  import { useSurgicalRequests } from '../composables/useSurgicalRequests'
+
   import { medicalAgreements } from '../constants'
+  import { useSurgicalRequests } from '../composables/useSurgicalRequests'
 
   const {
     pagination,
@@ -21,6 +22,8 @@
       <div class="grid grid-cols-[1fr_1fr_1fr_auto_auto] items-center gap-4">
         <UInput
           v-model="doctor"
+          aria-label="Pesquisar por médico"
+          name="doctor"
           :disabled="loading"
           color="secondary"
           size="lg"
@@ -29,6 +32,8 @@
         />
         <UInput
           v-model="patient"
+          aria-label="Pesquisar por paciente"
+          name="patient"
           :disabled="loading"
           color="secondary"
           size="lg"
@@ -37,6 +42,8 @@
         />
         <USelect
           v-model="agreements"
+          aria-label="Pesquisar por convênio"
+          name="medicalAgreements"
           :disabled="loading"
           placeholder="Pesquisar por convênio"
           size="lg"
@@ -46,6 +53,7 @@
           class="max-w-70"
         />
         <UButton
+          aria-label="Pesquisar"
           :disabled="loading"
           color="primary"
           size="lg"
@@ -55,6 +63,7 @@
           Pesquisar
         </UButton>
         <UButton
+          aria-label="Limpar Filtros"
           :disabled="loading"
           color="secondary"
           size="lg"

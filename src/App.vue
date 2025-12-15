@@ -4,7 +4,7 @@
 
 <template>
   <UApp>
-    <UHeader title="Fin-x App" :ui="{ root: 'border-neutral-200' }">
+    <UHeader title="Fin-X App" :ui="{ root: 'border-neutral-200' }">
       <template #title>
         <img
           class="h-10 max-w-full"

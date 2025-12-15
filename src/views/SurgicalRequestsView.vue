@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { onMounted } from 'vue'
+
   import { useSurgicalRequests } from '../composables/useSurgicalRequests'
 
   const { listSurgicalRequests, resetFilters, results, loading, error } =
@@ -32,7 +33,9 @@
           :items="results"
           :loading="loading"
         />
-        <USkeleton v-if="!results?.length && loading" class="h-173.5 w-full" />
+        <UCard v-if="!results?.length && loading">
+          <USkeleton class="h-173.5 w-full" />
+        </UCard>
         <UEmpty
           v-if="!results?.length && !loading && error"
           icon="i-lucide-file"
