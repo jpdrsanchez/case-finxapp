@@ -41,7 +41,7 @@
   <UCard>
     <UTable :data="items" :columns="columns" :loading="loading" />
     <template #footer>
-      <div class="flex items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-between gap-4">
         <UPagination
           v-model:page="page"
           :disabled="loading"
@@ -49,6 +49,7 @@
           :total="totalItems"
           :sibling-count="1"
           :show-edges="true"
+          :ui="{ list: 'flex-wrap' }"
           @update:page="
             page => {
               handlePagination({ page, itemsPerPage, order })
