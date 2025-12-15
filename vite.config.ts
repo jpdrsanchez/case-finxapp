@@ -9,7 +9,10 @@ export default defineConfig({
     vue(),
     ui({
       colorMode: false,
-      ui: { colors: { primary: 'brand-primary', secondary: 'brand-secondary' } }
+      ui: {
+        colors: { primary: 'brand-primary', secondary: 'brand-secondary' },
+        main: { base: 'bg-neutral-50' }
+      }
     })
   ],
   test: {

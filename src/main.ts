@@ -5,6 +5,9 @@ import ui from '@nuxt/ui/vue-plugin'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
+import { worker } from '../server/worker'
+
+await worker.start()
 
 const app = createApp(App)
 
