@@ -17,10 +17,7 @@ export const surgicalRequestsMapper = {
 }
 
 export const paginationMapper = {
-  toModel: (
-    dto: PaginationDTO,
-    order: 'ASC' | 'DESC' | null
-  ): PaginationModel => ({
+  toModel: (dto: PaginationDTO, order: string): PaginationModel => ({
     itemsPerPage: dto.itensPorPagina,
     page: dto.paginaAtual,
     totalItems: dto.totalDeItens,

@@ -19,7 +19,9 @@
 <template>
   <div>
     <UCard :ui="{ root: 'ring-neutral-200' }">
-      <div class="grid grid-cols-[1fr_1fr_1fr_auto_auto] items-center gap-4">
+      <div
+        class="grid items-center gap-4 md:grid-cols-3 lg:grid-cols-[1fr_1fr_1fr_auto_auto]"
+      >
         <UInput
           v-model="doctor"
           aria-label="Pesquisar por médico"
@@ -50,7 +52,7 @@
           icon="i-lucide-heart-handshake"
           multiple
           :items="medicalAgreements"
-          class="max-w-70"
+          class="max-w-full"
         />
         <UButton
           aria-label="Pesquisar"
@@ -82,7 +84,7 @@
       <label class="flex items-center gap-4">
         <span>Ordenar por:</span>
         <USelect
-          v-model="order as string"
+          v-model="order"
           :disabled="loading"
           size="lg"
           :items="[
@@ -91,7 +93,7 @@
           ]"
           class="w-48"
           @update:model-value="
-            value => {
+            (value: string) => {
               handlePagination({
                 page: 1,
                 itemsPerPage,
