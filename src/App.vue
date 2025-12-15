@@ -4,7 +4,7 @@
 
 <template>
   <UApp>
-    <UHeader />
+    <UHeader title="Fin-x App" :ui="{ root: 'border-neutral-200' }" />
     <UMain>
       <RouterView />
     </UMain>
